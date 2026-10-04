@@ -3,7 +3,7 @@ import './FooterLogo.css'
 
 export default function FooterLogo() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
     const container = containerRef.current
@@ -39,7 +39,7 @@ export default function FooterLogo() {
     <div
       ref={containerRef}
       className="ascylla-footer-logo"
-      data-paused={paused}
+      data-paused={isPaused}
     >
       <a
         className="ascylla-footer-logo__link"
@@ -62,13 +62,13 @@ export default function FooterLogo() {
         </span>
       </a>
 
-      {/* <button
+      <button
         type="button"
         className="ascylla-footer-logo__toggle"
         aria-label="Pause logo animation"
-        aria-pressed={paused}
-        title={paused ? 'Resume logo animation' : 'Pause logo animation'}
-        onClick={() => setPaused((current) => !current)}
+        aria-pressed={isPaused}
+        title={isPaused ? 'Resume logo animation' : 'Pause logo animation'}
+        onClick={() => setIsPaused((current) => !current)}
       >
         <svg
           width="12"
@@ -77,13 +77,13 @@ export default function FooterLogo() {
           fill="currentColor"
           aria-hidden="true"
         >
-          {paused ? (
+          {isPaused ? (
             <path d="M8 5v14l11-7L8 5Z" />
           ) : (
             <path d="M6 5h4v14H6V5Zm8 0h4v14h-4V5Z" />
           )}
         </svg>
-      </button> */}
+      </button>
     </div>
   )
 }

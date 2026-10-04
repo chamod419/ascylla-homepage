@@ -1,0 +1,68 @@
+.workflow-svg {
+  position: relative;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.workflow-svg__scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 500ms;
+}
+
+.workflow-svg__scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.workflow-svg__scene > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-svg__scene {
+    transition: none;
+  }
+}
+
+
+.ascylla-workflow-visual {
+  --workflow-art-primary: #be185d;
+  --workflow-art-bright: #db2777;
+  --workflow-art-soft: #d8b4fe;
+  --workflow-art-pale: #fce7f3;
+}
+
+[data-theme='dark'] .ascylla-workflow-visual {
+  --workflow-art-primary: #be185d;
+  --workflow-art-bright: #db2777;
+  --workflow-art-soft: #75409b;
+  --workflow-art-pale: #40213e;
+}
+
+/* CSS animations and native SVG animations need separate controls. */
+.ascylla-workflow-visual[data-running='false']
+  .workflow-svg__scene *,
+.ascylla-workflow-visual
+  .workflow-svg__scene:not(.is-active) * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascylla-workflow-visual *,
+  .ascylla-workflow-visual *::before,
+  .ascylla-workflow-visual *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

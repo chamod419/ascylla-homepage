@@ -1,0 +1,561 @@
+.ascylla-closing {
+  --closing-accent: #c91858;
+  --closing-accent-hover: #aa1249;
+  --closing-highlight: #8b5cf6;
+  --closing-soft: #fce7f3;
+  --closing-orbit: rgb(201 24 88 / 10%);
+  --closing-glow: rgb(219 39 119 / 11%);
+  --closing-plate: var(--color-background, #ffffff);
+  --closing-border: var(--color-border, #e8e3eb);
+
+  color: var(--color-text, #202026);
+  background: var(--color-background, #ffffff);
+}
+
+[data-theme='dark'] .ascylla-closing {
+  --closing-accent: #f472b6;
+  --closing-accent-hover: #f9a8d4;
+  --closing-highlight: #c4b5fd;
+  --closing-soft: #321d2d;
+  --closing-orbit: rgb(244 114 182 / 10%);
+  --closing-glow: rgb(219 39 119 / 12%);
+  --closing-plate: var(--color-panel, #19171f);
+}
+
+.ascylla-closing,
+.ascylla-closing * {
+  box-sizing: border-box;
+}
+
+.ascylla-closing .closing-cta {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 720px;
+  padding: 88px 0 64px;
+  overflow: hidden;
+  background: var(--color-background, #ffffff);
+}
+
+/* Decorative background stays behind the content. */
+
+.ascylla-closing .closing-cta__art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.closing-cta__glow {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 360px);
+  width: 720px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    var(--closing-glow),
+    transparent 68%
+  );
+
+  animation: ascylla-closing-glow 8s ease-in-out infinite;
+}
+
+.closing-cta__orbit {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  border: 1px solid var(--closing-orbit);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.closing-cta__orbit--outer {
+  width: 850px;
+  height: 850px;
+}
+
+.closing-cta__orbit--inner {
+  width: 640px;
+  height: 640px;
+}
+
+.ascylla-closing .closing-cta__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: min(100%, 960px);
+  margin-inline: auto;
+  padding-inline: 24px;
+  text-align: center;
+}
+
+/* The mask uses the original Ascylla mark's transparent outline. */
+
+.closing-cta__emblem {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 32px;
+}
+
+.ascylla-closing .closing-cta__shape {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  border-radius: 32px;
+  transform: rotate(-7deg);
+
+  animation: ascylla-closing-float 7s ease-in-out infinite;
+}
+
+.ascylla-closing .closing-cta__surface {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--closing-border);
+  border-radius: inherit;
+  background: var(--closing-plate);
+  box-shadow:
+    0 12px 40px rgb(70 20 50 / 6%),
+    inset 0 1px 0 rgb(255 255 255 / 35%);
+}
+
+[data-theme='dark'] .ascylla-closing .closing-cta__surface {
+  box-shadow:
+    0 16px 48px rgb(0 0 0 / 20%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+
+.closing-cta__mark {
+  position: relative;
+  width: 66px;
+  height: 57px;
+  overflow: hidden;
+  transform: rotate(7deg);
+  background: #ed1765;
+
+  -webkit-mask:
+    url('/brand/ascylla-mark-transparent.png')
+    center / contain no-repeat;
+  mask:
+    url('/brand/ascylla-mark-transparent.png')
+    center / contain no-repeat;
+}
+
+.closing-cta__mark-colour,
+.closing-cta__mark-shine {
+  position: absolute;
+  inset: 0;
+}
+
+.closing-cta__mark-colour {
+  background: linear-gradient(
+    115deg,
+    #be185d 5%,
+    #ec4899 25%,
+    #a855f7 46%,
+    #f472b6 65%,
+    #e91e63 85%
+  );
+  background-size: 300% 300%;
+
+  animation: ascylla-closing-colour 8s ease-in-out infinite alternate;
+}
+
+.closing-cta__mark-shine {
+  background: linear-gradient(
+    110deg,
+    transparent 34%,
+    rgb(255 255 255 / 65%) 48%,
+    transparent 62%
+  );
+  background-size: 300% 100%;
+  mix-blend-mode: screen;
+
+  animation: ascylla-closing-shine 6s ease-in-out infinite;
+}
+
+/* Copy and actions */
+
+.closing-cta__eyebrow {
+  margin: 0 0 18px;
+  color: var(--closing-accent);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ascylla-closing .closing-cta h2 {
+  margin: 0;
+  color: var(--color-text, #202026);
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+}
+
+.ascylla-closing .closing-cta h2 > span {
+  color: var(--closing-accent);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .ascylla-closing .closing-cta h2 > span {
+    background: linear-gradient(
+      105deg,
+      var(--closing-accent) 15%,
+      var(--closing-highlight) 95%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.closing-cta__description {
+  max-width: 470px;
+  margin: 24px 0 0;
+  color: var(--color-muted, #6b6875);
+  font-size: 16px;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.closing-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 30px;
+}
+
+.ascylla-closing .closing-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--closing-accent);
+  color: var(--color-background, #ffffff);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.ascylla-closing .closing-cta__button svg {
+  flex-shrink: 0;
+  transition: transform 180ms ease;
+}
+
+.closing-cta__email {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-muted, #6b6875);
+  font-size: 14px;
+  text-decoration: underline;
+  text-decoration-color: var(--closing-border);
+  text-underline-offset: 5px;
+  transition: color 180ms ease;
+}
+
+.closing-cta__playback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 24px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-muted, #6b6875);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.closing-cta__playback svg {
+  flex-shrink: 0;
+}
+
+.ascylla-closing a:focus-visible,
+.ascylla-closing button:focus-visible {
+  outline: 2px solid var(--closing-accent);
+  outline-offset: 5px;
+}
+
+/* Service areas are descriptive labels, not certification badges. */
+
+.ascylla-closing .closing-trust {
+  width: min(1216px, calc(100% - 64px));
+  max-width: none;
+  margin-inline: auto;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--closing-border);
+}
+
+.ascylla-closing .closing-trust__set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ascylla-closing .closing-trust__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-muted, #6b6875);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.closing-trust__dot {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--closing-accent);
+}
+
+/* Pause also applies when the section is offscreen or the tab is hidden. */
+
+.ascylla-closing .closing-cta[data-running='false'] *,
+.ascylla-closing .closing-cta[data-running='false'] *::before,
+.ascylla-closing .closing-cta[data-running='false'] *::after {
+  animation-play-state: paused !important;
+}
+
+@keyframes ascylla-closing-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-7deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+}
+
+@keyframes ascylla-closing-colour {
+  from {
+    background-position: 0% 40%;
+  }
+
+  to {
+    background-position: 100% 60%;
+  }
+}
+
+@keyframes ascylla-closing-shine {
+  0%,
+  15% {
+    background-position: 100% 50%;
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.7;
+  }
+
+  65% {
+    background-position: 0% 50%;
+    opacity: 0;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes ascylla-closing-glow {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) {
+  .ascylla-closing .closing-cta__button:hover {
+    background: var(--closing-accent-hover);
+  }
+
+  .ascylla-closing .closing-cta__button:hover svg {
+    transform: translateX(3px);
+  }
+
+  .closing-cta__email:hover {
+    color: var(--color-text, #202026);
+  }
+
+  .closing-cta__playback:hover {
+    background: var(--color-panel, #f7f7fa);
+    color: var(--color-text, #202026);
+  }
+}
+
+@media (max-width: 767px) {
+  .ascylla-closing .closing-cta {
+    min-height: 640px;
+    padding: 64px 0 40px;
+  }
+
+  .closing-cta__emblem {
+    width: 116px;
+    height: 116px;
+    margin-bottom: 24px;
+  }
+
+  .ascylla-closing .closing-cta__shape {
+    width: 96px;
+    height: 96px;
+    border-radius: 27px;
+  }
+
+  .closing-cta__mark {
+    width: 56px;
+    height: 48px;
+  }
+
+  .closing-cta__eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+  }
+
+  .closing-cta__description {
+    max-width: 360px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  .closing-cta__actions {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 24px;
+  }
+
+  .closing-cta__playback {
+    margin-top: 16px;
+  }
+
+  .closing-cta__orbit--outer {
+    width: 660px;
+    height: 660px;
+  }
+
+  .closing-cta__orbit--inner {
+    width: 470px;
+    height: 470px;
+  }
+
+  .ascylla-closing .closing-trust {
+    width: calc(100% - 40px);
+    padding-block: 24px;
+  }
+
+  .ascylla-closing .closing-trust__set {
+    gap: 14px 24px;
+  }
+}
+
+@media (max-width: 399px) {
+  .ascylla-closing .closing-cta__content {
+    padding-inline: 20px;
+  }
+
+  .ascylla-closing .closing-cta h2 {
+    font-size: 42px;
+  }
+
+  .ascylla-closing .closing-trust__set {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+
+  .ascylla-closing .closing-trust__badge {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascylla-closing *,
+  .ascylla-closing *::before,
+  .ascylla-closing *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .closing-cta__mark-shine,
+  .closing-cta__playback {
+    display: none;
+  }
+}
+
+.ascylla-closing .closing-cta__emblem {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.ascylla-closing .closing-cta__reveal {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Keep the moving plate behind the text and buttons. */
+.ascylla-closing .closing-cta__content > :not(.closing-cta__emblem) {
+  position: relative;
+  z-index: 1;
+}
+
+/* The plate moves with scrolling; colour motion remains inside the mark. */
+.ascylla-closing .closing-cta__shape {
+  animation: none;
+  transform: rotate(-7deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascylla-closing .closing-cta__reveal {
+    transform: none !important;
+    will-change: auto;
+  }
+}

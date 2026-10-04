@@ -1,0 +1,206 @@
+.ascylla-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.ascylla-footer-logo__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.ascylla-footer-logo__mark {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+
+  width: 48px;
+  height: 42px;
+
+  background: #ed1765;
+
+  -webkit-mask:
+    url('/brand/ascylla-mark-transparent.png')
+    center / contain no-repeat;
+
+  mask:
+    url('/brand/ascylla-mark-transparent.png')
+    center / contain no-repeat;
+
+  isolation: isolate;
+}
+
+.ascylla-footer-logo__colour,
+.ascylla-footer-logo__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ascylla-footer-logo__colour {
+  background-image: linear-gradient(
+    115deg,
+    #ff246e 0%,
+    #eb1264 15%,
+    #a238df 30%,
+    #e2ceff 40%,
+    #fff1f8 45%,
+    #f34f9a 51%,
+    #ca1e83 64%,
+    #8c45d9 78%,
+    #ff246e 100%
+  );
+
+  background-size: 350% 350%;
+  background-position: 0% 40%;
+
+  animation:
+    ascylla-footer-colour-flow
+    8s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.ascylla-footer-logo__shine {
+  background-image: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgb(255 255 255 / 0%) 40%,
+    rgb(255 255 255 / 75%) 49%,
+    rgb(255 255 255 / 12%) 55%,
+    transparent 65%
+  );
+
+  background-size: 300% 100%;
+  background-position: 100% 50%;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+
+  animation:
+    ascylla-footer-shine-flow
+    6s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.ascylla-footer-logo__wordmark {
+  color: var(--color-text);
+
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.17em;
+}
+
+.ascylla-footer-logo__link {
+  transition: filter 220ms ease;
+}
+
+.ascylla-footer-logo__link:hover,
+.ascylla-footer-logo__link:focus-visible {
+  filter: drop-shadow(0 0 10px rgb(236 36 116 / 22%));
+}
+
+.ascylla-footer-logo__toggle {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  background: var(--color-panel);
+  color: var(--color-muted);
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.ascylla-footer-logo__toggle:hover {
+  color: var(--color-text);
+  border-color: #db2777;
+}
+
+.ascylla-footer-logo__link:focus-visible,
+.ascylla-footer-logo__toggle:focus-visible {
+  outline: 2px solid #db2777;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.ascylla-footer-logo[data-paused='true']
+  .ascylla-footer-logo__mark > span,
+.ascylla-footer-logo[data-inactive='true']
+  .ascylla-footer-logo__mark > span {
+  animation-play-state: paused;
+}
+
+@keyframes ascylla-footer-colour-flow {
+  0% {
+    background-position: 0% 40%;
+  }
+
+  50% {
+    background-position: 55% 80%;
+  }
+
+  100% {
+    background-position: 100% 25%;
+  }
+}
+
+@keyframes ascylla-footer-shine-flow {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ascylla-footer-logo__mark {
+    width: 43px;
+    height: 38px;
+  }
+
+  .ascylla-footer-logo__wordmark {
+    font-size: 18px;
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascylla-footer-logo__colour,
+  .ascylla-footer-logo__shine {
+    animation: none;
+  }
+
+  .ascylla-footer-logo__colour {
+    background-position: 45% 50%;
+  }
+
+  .ascylla-footer-logo__shine,
+  .ascylla-footer-logo__toggle {
+    display: none;
+  }
+
+  .ascylla-footer-logo__link {
+    transition: none;
+  }
+}

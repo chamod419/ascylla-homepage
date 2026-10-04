@@ -1,0 +1,342 @@
+.ascylla-footer {
+  --footer-accent: #c91858;
+  --footer-accent-hover: #ad124a;
+  --footer-link-accent: #c91858;
+
+  /* Keep existing shared components connected to the theme. */
+  --expo-muted: var(--color-muted);
+  --expo-ink: var(--color-text);
+  --expo-panel: var(--color-panel);
+  --expo-border: var(--color-border);
+
+  color: var(--color-text);
+  background: var(--color-background);
+  border-top: 1px solid var(--color-border);
+}
+
+[data-theme='dark'] .ascylla-footer {
+  --footer-link-accent: #f472b6;
+}
+
+.ascylla-footer .ascylla-footer__container {
+  box-sizing: border-box;
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+
+.site-footer__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+
+  padding: 72px 0 56px;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 270px;
+  gap: 22px;
+
+  min-width: 0;
+}
+
+.ascylla-footer__description {
+  max-width: 290px;
+  margin: 0;
+
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.site-footer__newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  padding-top: 8px;
+}
+
+.site-footer__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0;
+
+  color: var(--color-muted);
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-footer__eyebrow span {
+  display: block;
+  flex-shrink: 0;
+
+  width: 5px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--footer-link-accent);
+}
+
+.site-footer__newsletter-copy {
+  margin: 10px 0 0;
+
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.ascylla-footer .site-footer__updates {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 10px 16px;
+
+  border: 1px solid var(--footer-accent);
+  border-radius: 999px;
+
+  background: var(--footer-accent);
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.site-footer__updates svg {
+  flex-shrink: 0;
+}
+
+.site-footer__groups {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.5fr)
+    minmax(0, 0.9fr)
+    minmax(0, 0.9fr);
+  flex: 1;
+  gap: 32px 24px;
+
+  min-width: 0;
+}
+
+.ascylla-footer__group {
+  min-width: 0;
+}
+
+.site-footer__groups h3 {
+  margin: 0 0 20px;
+
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.site-footer__groups ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__groups li {
+  max-width: 100%;
+}
+
+.site-footer__groups a {
+  display: inline-block;
+  padding-block: 3px;
+
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  transition: color 180ms ease;
+}
+
+.site-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+
+  padding: 26px 0;
+  border-top: 1px solid var(--color-border);
+
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.site-footer__legal {
+  min-width: 0;
+}
+
+.site-footer__copyright {
+  margin: 0;
+}
+
+.ascylla-footer__utilities {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.ascylla-footer__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  min-height: 36px;
+
+  color: var(--color-muted);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  transition: color 180ms ease;
+}
+
+.ascylla-footer__email svg {
+  flex-shrink: 0;
+}
+
+.ascylla-footer__theme {
+  display: flex;
+  align-items: center;
+}
+
+.ascylla-footer a:focus-visible,
+.ascylla-footer button:focus-visible,
+.ascylla-footer select:focus-visible {
+  outline: 2px solid var(--footer-link-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .ascylla-footer .site-footer__updates:hover {
+    border-color: var(--footer-accent-hover);
+    background: var(--footer-accent-hover);
+    color: #ffffff;
+  }
+
+  .site-footer__groups a:hover,
+  .ascylla-footer__email:hover {
+    color: var(--footer-link-accent);
+  }
+}
+
+@media (max-width: 1199px) {
+  .site-footer__main {
+    gap: 40px;
+  }
+
+  .site-footer__brand {
+    flex-basis: 230px;
+  }
+
+  .site-footer__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ascylla-footer .ascylla-footer__container {
+    padding-inline: 24px;
+  }
+
+  .site-footer__main {
+    flex-direction: column;
+    gap: 40px;
+    padding: 48px 0 36px;
+  }
+
+  .site-footer__brand {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .ascylla-footer__description {
+    max-width: 440px;
+  }
+
+  .site-footer__newsletter {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: var(--color-panel);
+  }
+
+  .site-footer__groups {
+    width: 100%;
+    gap: 32px 24px;
+  }
+
+  .site-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 24px;
+  }
+
+  .ascylla-footer__utilities {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .ascylla-footer .ascylla-footer__container {
+    padding-inline: 16px;
+  }
+
+  .site-footer__groups {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ascylla-footer *,
+  .ascylla-footer *::before,
+  .ascylla-footer *::after {
+    transition: none !important;
+  }
+}

@@ -3,7 +3,7 @@ import './FooterLogo.css'
 
 export default function FooterLogo() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [paused, setPaused] = useState(false)
+  const [isPaused] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current

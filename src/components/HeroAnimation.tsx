@@ -3,8 +3,6 @@ import type { PointerEvent } from 'react'
 import HeroRays from './HeroRays'
 import './HeroAnimation.css'
 
-const LOGO_PATH =
-  'M217.896 0H183.933C168.254 0 153.881 8.73298 146.657 22.6483L2.69936 299.945C-0.642955 306.383 -0.894049 313.987 2.01629 320.632L13.936 347.845C21.3533 364.78 44.7068 366.486 54.5066 350.809L190.969 132.512C193.112 129.083 196.871 127 200.914 127C204.958 127 208.716 129.083 210.86 132.512L347.322 350.809C357.122 366.486 380.475 364.78 387.893 347.845L399.812 320.632C402.723 313.987 402.472 306.383 399.129 299.945L255.172 22.6483C247.948 8.73298 233.575 0 217.896 0Z'
 
 // Stable values keep the graphic consistent between renders.
 function noise(seed: number) {
@@ -208,19 +206,15 @@ export default function HeroAnimation() {
           mask={`url(#${id}-shade)`}
         />
 
-        <g transform="scale(0.4428) translate(-201 -181)">
-          <path
-            className="hero-logo-dots"
-            d={LOGO_PATH}
-            fill={`url(#${id}-dots)`}
-          />
-
-          <path
-            className="hero-logo-solid"
-            d={LOGO_PATH}
-            fill="var(--hero-mark)"
-          />
-        </g>
+        <image
+          className="hero-ascylla-mark"
+          href="/brand/ascylla-mark-transparent.png"
+          x="-90"
+          y="-78"
+          width="180"
+          height="156"
+          preserveAspectRatio="xMidYMid meet"
+        />
       </g>
     </svg>
   )

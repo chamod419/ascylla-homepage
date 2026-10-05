@@ -96,3 +96,31 @@
     display: none;
   }
 }
+
+.hero-ascylla-mark {
+  opacity: 1;
+  pointer-events: none;
+
+  animation:
+    hero-ascylla-mark-reveal
+    1.8s
+    ease
+    both;
+}
+
+@keyframes hero-ascylla-mark-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ascylla-mark {
+    animation: none;
+    opacity: 1;
+  }
+}

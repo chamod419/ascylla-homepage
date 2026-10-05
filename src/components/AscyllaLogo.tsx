@@ -14,12 +14,16 @@ export default function AscyllaLogo({
       aria-label="Ascylla home"
     >
       <img
-        className="ascylla-brand__image"
-        src="/brand/ascylla-logo.png"
-        alt="Ascylla"
-        width={212}
-        height={44}
+        className="ascylla-brand__mark"
+        src="/brand/ascylla-mark-transparent.png"
+        alt=""
+        width="44"
+        height="38"
       />
+
+      <span className="ascylla-brand__name">
+        ASCYLLA
+      </span>
     </a>
   )
 }
